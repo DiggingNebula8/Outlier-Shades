@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: OutlierShades_Terrain
+  m_Shader: {fileID: 4800000, guid: 98e759d446905d04d88725fd31713c83, type: 3}
+  m_ShaderKeywords: _MATERIALMODE1_METALLIC _USETOONRAMP1_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Specular1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularRamp1:
+        m_Texture: {fileID: 2800000, guid: 3417606e6c0b1cf4c94ddd333f5e101b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ToonRamp1:
+        m_Texture: {fileID: 2800000, guid: bdf685e2a68dd4d4d83df0269e6da878, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _ForceGrayscale1: 0
+    - _Gloss1: 0
+    - _MaterialMode1: 1
+    - _NormalScale1: 1
+    - _RampBias1: 1
+    - _RampScale1: 1
+    - _ScaleandOffset1: 0.5
+    - _SpecInten1: 0
+    - _SpecTintBlend1: 0
+    - _UseSpecularRamp1: 0
+    - _UseToonRamp1: 1
+    m_Colors:
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularTint1: {r: 1, g: 1, b: 1, a: 0}
+    - _Tint1: {r: 0.786347, g: 0.8018868, b: 0.5628337, a: 0}
+  m_BuildTextureStacks: []

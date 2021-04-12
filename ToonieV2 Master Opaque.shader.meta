@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 16338a6420ecf6d4fa013d8ce95f40eb
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _GeoGradientAlbedo: {fileID: 2800000, guid: 4b55b51bcc0d6de4c8d6a16df06135db, type: 3}
+  - _ToonRamp: {fileID: 2800000, guid: bdf685e2a68dd4d4d83df0269e6da878, type: 3}
+  - _SpecularRamp: {fileID: 2800000, guid: bdf685e2a68dd4d4d83df0269e6da878, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

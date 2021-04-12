@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Outlines
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity
+    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18800\n0;73.6;928.6;854;2910.718;178.5558;1;True;False\nNode;AmplifyShaderEditor.FunctionInput;11;-120.5984,-190.6784;Inherit;False;DepthTightening;1;3;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;33;-1414.666,-103.8118;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;40;-1245.846,877.1448;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;42;-1034.771,921.6322;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;16;-2135.45,-1624.404;Inherit;False;ScreenUV;-1;True;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;5;-2320.261,-1630.349;Inherit;False;ScreenUV;2;0;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;13;-1265.709,785.5285;Inherit;False;NormalThreshold;1;11;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;20;-2619.384,138.442;Inherit;False;16;ScreenUV;1;0;OBJECT;;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;30;-1725.895,-216.5702;Inherit;False;FarDepthThresholdMulti;1;8;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;15;-2352.414,349.2007;Inherit;False; 
+    GetDepthAndNormal(UV, Depth, Normal)@$    // Normals are encoded from 0 to 1
+    in the texture. Remap them to -1 to 1 for easier use in the graph$    Normal
+    = Normal * 2 - 1@;1;True;3;True;UV;FLOAT2;0,0;In;;Inherit;False;True;Depth;FLOAT;0;Out;;Inherit;False;True;Normal;FLOAT3;0,0,0;Out;;Inherit;False;CalculateDepthNormal;False;False;0;4;0;FLOAT;0;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT3;0,0,0;False;3;FLOAT;0;FLOAT;3;FLOAT3;4\nNode;AmplifyShaderEditor.GetLocalVarNode;18;-2612.931,377.3995;Inherit;False;16;ScreenUV;1;0;OBJECT;;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.GetLocalVarNode;17;-705.4091,-51.9438;Inherit;False;16;ScreenUV;1;0;OBJECT;;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;34;-1231.517,10.47232;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;1;-471.3352,-25;Inherit;False;float2
+    sobelX = 0@$float2 sobelY = 0@$float2 sobelZ = 0@$float2 sobelDepth = 0@$$[unroll]
+    for (int i = 0@ i < 4@ i++) ${$ $float depth@$float3 normal@$GetDepthAndNormal(UV
+    + sobelSamplePoints[i] * Thickness, depth, normal)@$        // Create the kernel
+    for this iteration$        float2 kernel = sobelSamplePoints[i]@$        // Accumulate
+    samples for each coordinate and depth$        sobelX += normal.x * kernel@$       
+    sobelY += normal.y * kernel@$        sobelZ += normal.z * kernel@$        sobelDepth
+    += depth * kernel@$}$    // Get the final sobel value$    // Combine the XYZ
+    values by taking the one with the largest sobel value$    Normals = max(length(sobelX),
+    max(length(sobelY), length(sobelZ)))@$    Depth = length(sobelDepth)@;1;True;4;True;UV;FLOAT2;0,0;In;;Inherit;False;True;Thickness;FLOAT;0;In;;Inherit;False;True;Normals;FLOAT;0;Out;;Inherit;False;True;Depth;FLOAT;0;Out;;Inherit;False;NormalsAndDepthSobel;False;False;1;15;5;0;FLOAT;0;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;3;FLOAT;0;FLOAT;4;FLOAT;5\nNode;AmplifyShaderEditor.SmoothstepOpNode;24;-1650.42,190.3374;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;41;-1430.846,970.1448;Inherit;False;Constant;_Max;Max;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.DotProductOpNode;22;-2062.108,184.4247;Inherit;False;2;0;FLOAT;0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;46;248.9117,-274.4939;Inherit;False;SobelTuning;-1;;3;d7978f0ab379b4d4487d326bea25cd2f;0;4;1;FLOAT;0;False;2;FLOAT;0.1;False;3;FLOAT;1;False;4;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;26;-1417.572,156.8509;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;43;567.2333,72.06897;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;10;-1242.21,-81.78318;Inherit;False;DepthThreshold;1;4;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;25;-1777.655,91.57516;Inherit;False;AcuteDepthThresholdMulti;1;6;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;38;-1438.215,848.7738;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SmoothstepOpNode;31;-1673.083,-128.1659;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;21;-1874.055,187.5075;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;39;-1724.846,740.1448;Inherit;False;FarDepthNormalThresholdMulti;1;13;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;9;-113.4429,-106.658;Inherit;False;DepthStrength;1;2;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SmoothstepOpNode;36;-1652.29,852.3974;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;6;-703.771,54.76425;Inherit;False;Thickness;1;1;False;1;0;FLOAT;0.1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;35;-998.5542,11.93738;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;29;-1894.31,-62.65827;Inherit;False;FarDepthStartDot;1;7;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;23;-1901.074,275.7355;Inherit;False;AcuteDepthStartDot;1;5;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;37;-1936.059,864.0741;Inherit;False;FarNormalStartDepth;1;12;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;14;-159.5133,320.6436;Inherit;False;NormalTightrning;1;10;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;12;-66.1445,415.3827;Inherit;False;NormalStrength;1;9;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;32;-2081.206,-56.80881;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CustomExpressionNode;19;-2369.336,92.85496;Inherit;False;float2
+    p11_22 = float2(unity_CameraProjection._11, unity_CameraProjection._22)@$   
+    // Convert the uvs into view space by \"undoing\" projection$    Out = -normalize(float3((In
+    * 2 - 1) / p11_22, -1))@;1;True;2;True;In;FLOAT2;0,0;In;;Inherit;False;True;Out;FLOAT;0;Out;;Inherit;False;ViewDirectionFromScreenUV;False;False;2;15;1;3;0;FLOAT;0;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;2;FLOAT;0;FLOAT;3\nNode;AmplifyShaderEditor.FunctionNode;47;247.8394,267.3174;Inherit;False;SobelTuning;-1;;4;d7978f0ab379b4d4487d326bea25cd2f;0;4;1;FLOAT;0;False;2;FLOAT;0.1;False;3;FLOAT;1;False;4;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;881.5759,68.98621;Inherit;False;True;-1;Output;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;33;0;30;0\nWireConnection;33;1;31;0\nWireConnection;40;0;38;0\nWireConnection;40;1;41;0\nWireConnection;42;0;13;0\nWireConnection;42;1;40;0\nWireConnection;16;0;5;0\nWireConnection;15;1;18;0\nWireConnection;34;0;33;0\nWireConnection;34;1;26;0\nWireConnection;1;1;17;0\nWireConnection;1;2;6;0\nWireConnection;24;0;21;0\nWireConnection;24;1;23;0\nWireConnection;22;0;19;3\nWireConnection;22;1;15;4\nWireConnection;46;1;1;5\nWireConnection;46;2;35;0\nWireConnection;46;3;11;0\nWireConnection;46;4;9;0\nWireConnection;26;0;25;0\nWireConnection;26;1;24;0\nWireConnection;43;0;46;0\nWireConnection;43;1;47;0\nWireConnection;38;0;39;0\nWireConnection;38;1;36;0\nWireConnection;31;0;32;0\nWireConnection;31;1;29;0\nWireConnection;21;0;22;0\nWireConnection;36;0;15;3\nWireConnection;36;1;37;0\nWireConnection;35;0;10;0\nWireConnection;35;1;34;0\nWireConnection;32;0;15;3\nWireConnection;19;1;20;0\nWireConnection;47;1;1;4\nWireConnection;47;2;42;0\nWireConnection;47;3;14;0\nWireConnection;47;4;12;0\nWireConnection;0;0;43;0\nASEEND*/\n//CHKSM=1788D76B21D0B36891E2BCF4AC67D1E8F11CC19A"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 1
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_additionalDirectives:
+    - {fileID: 0}
+    - {fileID: 0}
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems:
+    - LineType: 0
+      LineValue: 
+      GUIDToggle: 1
+      GUIDValue: 902f8162c56244a478ce863ab3402f5c
+      Origin: 2
+    - LineType: 0
+      LineValue: 
+      GUIDToggle: 1
+      GUIDValue: f411367842afe494c971a79605ee0e12
+      Origin: 2
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: RockLayering
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity
+    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18900\n-2560;0;2560;1419;2189.224;200.949;1;True;False\nNode;AmplifyShaderEditor.TextureCoordinatesNode;27;-1943.857,866.1458;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;41;-1269.543,481.8749;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;45;-713.1411,481.9088;Inherit;False;Property;_GeoLayerOpacity;Geo
+    Layer Opacity;6;0;Create;True;0;0;0;False;0;False;0.5;0;0.5;1;0;1;FLOAT;0\nNode;AmplifyShaderEditor.WorldPosInputsNode;35;-2345.878,634.2928;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.RangedFloatNode;30;-1626.858,1069.146;Inherit;False;Property;_GeoWarp;Geo
+    Warp;2;0;Create;True;0;0;0;False;0;False;0.05;0.05;0;10;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;39;-2197.331,1069.635;Inherit;False;Property;_GeoNoise;Geo
+    Noise;4;0;Create;True;0;0;0;False;0;False;100;100;1;200;0;1;FLOAT;0\nNode;AmplifyShaderEditor.NoiseGeneratorNode;31;-1664.471,865.6855;Inherit;False;Simplex3D;True;True;2;0;FLOAT3;0,0,0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;33;-1405.349,704.4439;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;25;-2233.854,796.1458;Inherit;False;Property;_NoiseSize;Noise
+    Size;3;0;Create;True;0;0;0;False;0;False;0.3;0.3;0;10;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;43;-1732.727,377.947;Inherit;False;Property;_GeoScaling;Geo
+    Scaling;5;0;Create;True;0;0;0;False;0;False;1;1;0;1;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SamplerNode;36;-1007.246,338.4716;Inherit;True;Property;_GeoGradientAlbedo;Geo
+    Gradient Albedo;1;0;Create;True;0;0;0;False;0;False;-1;4b55b51bcc0d6de4c8d6a16df06135db;4b55b51bcc0d6de4c8d6a16df06135db;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;32;-1331.858,979.1458;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;38;-939.24,244.6119;Inherit;False;Albedo;3;0;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.OneMinusNode;44;-1443.082,446.5013;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;29;-1733.858,705.146;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT2;0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.BlendOpsNode;37;-301.8374,324.1763;Inherit;True;Overlay;True;3;0;COLOR;0,0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;1;False;1;COLOR;0\nNode;AmplifyShaderEditor.BlendOpsNode;47;-304.8937,541.9203;Inherit;True;Overlay;True;3;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;48;-937.8937,763.9203;Inherit;False;Normal;3;1;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;28;-1913.858,611.1462;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.SamplerNode;46;-1007.188,539.9285;Inherit;True;Property;_GeoGradientNormal;Geo
+    Gradient Normal;0;0;Create;True;0;0;0;False;0;False;-1;d41ec0d6253da0845854db7c91aaf21c;4b55b51bcc0d6de4c8d6a16df06135db;True;0;True;bump;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.FunctionOutput;49;6.106323,556.9203;Inherit;False;False;-1;Normal;1;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;-2.895706,331.2637;Inherit;False;True;-1;Albedo;0;False;1;0;COLOR;0,0,0,0;False;1;COLOR;0\nWireConnection;27;0;39;0\nWireConnection;41;0;44;0\nWireConnection;41;1;33;0\nWireConnection;31;0;29;0\nWireConnection;33;0;35;2\nWireConnection;33;1;32;0\nWireConnection;36;1;41;0\nWireConnection;32;0;31;0\nWireConnection;32;1;30;0\nWireConnection;44;0;43;0\nWireConnection;29;0;28;0\nWireConnection;29;1;27;0\nWireConnection;37;0;36;0\nWireConnection;37;1;38;0\nWireConnection;37;2;45;0\nWireConnection;47;0;46;0\nWireConnection;47;1;48;0\nWireConnection;47;2;45;0\nWireConnection;28;0;35;0\nWireConnection;28;1;25;0\nWireConnection;46;1;41;0\nWireConnection;49;0;47;0\nWireConnection;0;0;37;0\nASEEND*/\n//CHKSM=5FB05937833960927779A279091BB7B4A35FC533"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Hatching
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity
+    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18900\n0;73.6;1273.4;1285;1029.07;335.9119;1;True;False\nNode;AmplifyShaderEditor.FunctionInput;14;-614.3751,-75.57821;Inherit;False;Hatch;3;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;15;-611.5419,2.310501;Inherit;False;Hatch2;3;1;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;16;-611.5414,78.78318;Inherit;False;Hatch3;3;2;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;18;-631.0924,225.8918;Inherit;False;First
+    Transition;1;5;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;19;-633.9255,299.5317;Inherit;False;Second
+    Transition;1;6;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;20;-625.4288,376.0046;Inherit;False;Third
+    Transition;1;7;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;17;-609.8505,150.8351;Inherit;False;Hatch4;3;3;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;21;-608.4358,470.8872;Inherit;False;Normal
+    View Direction;3;4;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.CustomExpressionNode;1;-312.2413,11.87849;Inherit;False; 
+    float3 res@$  float t@$  float3 minHatch@$  float3 maxHatch@$$  view = clamp(0.0,
+    1.0, view)@$$  //Hatch Lerps$  if(view <= Hatch0Ends){$$    t = 0@$    minHatch
+    = Hatch0@$    maxHatch = Hatch0@$  }else if (view <= Hatch1Ends){$$    t = (view
+    - Hatch0Ends) / (Hatch1Ends - Hatch0Ends)@$    minHatch = Hatch0@$    maxHatch
+    = Hatch1@$  }else if(view <= Hatch2Ends){$$    t = (view - Hatch1Ends) / (Hatch2Ends
+    - Hatch1Ends)@$    minHatch = Hatch1@$    maxHatch = Hatch2@$  }else{$$     t
+    = (view - Hatch2Ends) / (1.0 - Hatch2Ends)@$    minHatch = Hatch2@$    maxHatch
+    = Hatch3@$  }$$  res = lerp(minHatch, maxHatch, t)@$$  return res@;3;False;8;True;Hatch0;FLOAT3;0,0,0;In;;Inherit;False;True;Hatch1;FLOAT3;0,0,0;In;;Inherit;False;True;Hatch2;FLOAT3;0,0,0;In;;Inherit;False;True;Hatch3;FLOAT3;0,0,0;In;;Inherit;False;True;Hatch0Ends;FLOAT;0;In;;Inherit;False;True;Hatch1Ends;FLOAT;0;In;;Inherit;False;True;Hatch2Ends;FLOAT;0;In;;Inherit;False;True;view;FLOAT;0;In;;Inherit;False;Hatch;True;False;0;8;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT3;0,0,0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;0,0;Inherit;False;True;-1;Output;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nWireConnection;1;0;14;0\nWireConnection;1;1;15;0\nWireConnection;1;2;16;0\nWireConnection;1;3;17;0\nWireConnection;1;4;18;0\nWireConnection;1;5;19;0\nWireConnection;1;6;20;0\nWireConnection;1;7;21;0\nWireConnection;0;0;1;0\nASEEND*/\n//CHKSM=1BBCF4C2D6B0A7B8D4354FABAF7B33F59B21C98A"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0
