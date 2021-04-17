@@ -26,6 +26,19 @@ public class OutlierShadesGUIMaster : ShaderGUI
         MaterialProperty _UseRimLight = ShaderGUI.FindProperty("_UseRimLight", properties);
         MaterialProperty _UseEmission = ShaderGUI.FindProperty("_UseEmission", properties);
 
+        MaterialProperty _UseTriplanarProjection = ShaderGUI.FindProperty("_UseTriplanarProjection", properties);
+        MaterialProperty _AlbedoX = ShaderGUI.FindProperty("_AlbedoX", properties);
+        MaterialProperty _AlbedoY = ShaderGUI.FindProperty("_AlbedoY", properties);
+        MaterialProperty _AlbedoZ = ShaderGUI.FindProperty("_AlbedoZ", properties);
+        MaterialProperty _NormalX = ShaderGUI.FindProperty("_NormalX", properties);
+        MaterialProperty _NormalY = ShaderGUI.FindProperty("_NormalY", properties);
+        MaterialProperty _NormalZ = ShaderGUI.FindProperty("_NormalZ", properties);
+        MaterialProperty _TriplanarBlend = ShaderGUI.FindProperty("_TriplanarBlend", properties);
+        MaterialProperty _TriplanarDistanceBlend = ShaderGUI.FindProperty("_TriplanarDistanceBlend", properties);
+        MaterialProperty _NoiseTint = ShaderGUI.FindProperty("_NoiseTint", properties);
+        MaterialProperty _TriplanarNoise = ShaderGUI.FindProperty("_TriplanarNoise", properties);
+        MaterialProperty _TriplanarNoiseOffset = ShaderGUI.FindProperty("_TriplanarNoiseOffset", properties);
+
         MaterialProperty _Albedo = ShaderGUI.FindProperty("_Albedo", properties);
         MaterialProperty _RAlbedo = ShaderGUI.FindProperty("_RAlbedo", properties);
         MaterialProperty _GAlbedo = ShaderGUI.FindProperty("_GAlbedo", properties);
@@ -91,13 +104,33 @@ public class OutlierShadesGUIMaster : ShaderGUI
 
         GUILayout.Label("Albedo", EditorStyles.boldLabel);
         GUILayout.Space(10);
-        materialEditor.ShaderProperty(_Albedo, _Albedo.displayName);
+        if (_UseTriplanarProjection.floatValue == 1)
+        {;
+            materialEditor.ShaderProperty(_AlbedoX, _AlbedoX.displayName);
+            materialEditor.ShaderProperty(_AlbedoY, _AlbedoY.displayName);
+            materialEditor.ShaderProperty(_AlbedoZ, _AlbedoZ.displayName);
+            GUILayout.Space(20);
+        }
+        if (_UseTriplanarProjection.floatValue == 0)
+        {
+            materialEditor.ShaderProperty(_Albedo, _Albedo.displayName);
+        }
         materialEditor.ShaderProperty(_Tint, _Tint.displayName);
         GUILayout.Space(20);
 
         GUILayout.Label("Normal", EditorStyles.boldLabel);
         GUILayout.Space(10);
-        materialEditor.ShaderProperty(_Normal, _Normal.displayName);
+        if (_UseTriplanarProjection.floatValue == 1)
+        {
+            materialEditor.ShaderProperty(_NormalX, _NormalX.displayName);
+            materialEditor.ShaderProperty(_NormalY, _NormalY.displayName);
+            materialEditor.ShaderProperty(_NormalZ, _NormalZ.displayName);
+            GUILayout.Space(20);
+        }
+        if (_UseTriplanarProjection.floatValue == 0)
+        {
+            materialEditor.ShaderProperty(_Normal, _Normal.displayName);
+        }
         materialEditor.ShaderProperty(_NormalScale, _NormalScale.displayName);
         GUILayout.Space(20);
 
@@ -155,8 +188,9 @@ public class OutlierShadesGUIMaster : ShaderGUI
         GUILayout.Space(20);
         GUILayout.Label("Settings", EditorStyles.boldLabel);
         GUILayout.Space(10);
-       // materialEditor.ShaderProperty(_UseAlpha, _UseAlpha.displayName);
+        // materialEditor.ShaderProperty(_UseAlpha, _UseAlpha.displayName);
         //materialEditor.ShaderProperty(_UseHatching, _UseHatching.displayName);
+        materialEditor.ShaderProperty(_UseTriplanarProjection, _UseTriplanarProjection.displayName);
         materialEditor.ShaderProperty(_UseRimLight, _UseRimLight.displayName);
         materialEditor.ShaderProperty(_UseEmission, _UseEmission.displayName);
         materialEditor.ShaderProperty(_UseVertexColours, _UseVertexColours.displayName);
@@ -177,6 +211,18 @@ public class OutlierShadesGUIMaster : ShaderGUI
         }
         */
 
+        if (_UseTriplanarProjection.floatValue == 1)
+        {
+            GUILayout.Label("Triplanar", EditorStyles.boldLabel);
+            GUILayout.Space(10);
+            materialEditor.ShaderProperty(_TriplanarBlend, _TriplanarBlend.displayName);
+            materialEditor.ShaderProperty(_TriplanarDistanceBlend, _TriplanarDistanceBlend.displayName);
+            materialEditor.ShaderProperty(_NoiseTint, _NoiseTint.displayName);
+            materialEditor.ShaderProperty(_TriplanarNoise, _TriplanarNoise.displayName);
+            materialEditor.ShaderProperty(_TriplanarNoiseOffset, _TriplanarNoiseOffset.displayName);
+            GUILayout.Space(20);
+
+        }
 
         if (_UseRimLight.floatValue == 1)
         {
