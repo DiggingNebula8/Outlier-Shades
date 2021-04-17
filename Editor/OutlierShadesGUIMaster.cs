@@ -8,7 +8,7 @@ public class OutlierShadesGUIMaster : ShaderGUI
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] properties)
     {
 
-        Texture2D shaderBanner = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/OutlierShades/Editor/ShaderBanner.png", typeof(Texture2D));
+        Texture2D shaderBanner = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/OutlierShades/Outlier-Shades/Editor/ShaderBanner.png", typeof(Texture2D));
 
         //base.OnGUI(materialEditor, properties);
         MaterialProperty _MaterialMode = ShaderGUI.FindProperty("_MaterialMode", properties);
@@ -35,7 +35,7 @@ public class OutlierShadesGUIMaster : ShaderGUI
         MaterialProperty _NormalZ = ShaderGUI.FindProperty("_NormalZ", properties);
         MaterialProperty _TriplanarBlend = ShaderGUI.FindProperty("_TriplanarBlend", properties);
         MaterialProperty _TriplanarDistanceBlend = ShaderGUI.FindProperty("_TriplanarDistanceBlend", properties);
-        MaterialProperty _NoiseTint = ShaderGUI.FindProperty("_NoiseTint", properties);
+        MaterialProperty _TriplanarNoiseTint = ShaderGUI.FindProperty("_TriplanarNoiseTint", properties);
         MaterialProperty _TriplanarNoise = ShaderGUI.FindProperty("_TriplanarNoise", properties);
         MaterialProperty _TriplanarNoiseOffset = ShaderGUI.FindProperty("_TriplanarNoiseOffset", properties);
 
@@ -217,7 +217,7 @@ public class OutlierShadesGUIMaster : ShaderGUI
             GUILayout.Space(10);
             materialEditor.ShaderProperty(_TriplanarBlend, _TriplanarBlend.displayName);
             materialEditor.ShaderProperty(_TriplanarDistanceBlend, _TriplanarDistanceBlend.displayName);
-            materialEditor.ShaderProperty(_NoiseTint, _NoiseTint.displayName);
+            materialEditor.ShaderProperty(_TriplanarNoiseTint, _TriplanarNoiseTint.displayName);
             materialEditor.ShaderProperty(_TriplanarNoise, _TriplanarNoise.displayName);
             materialEditor.ShaderProperty(_TriplanarNoiseOffset, _TriplanarNoiseOffset.displayName);
             GUILayout.Space(20);

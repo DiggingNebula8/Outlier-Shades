@@ -8,7 +8,7 @@ public class OutlierShadesGUIOpaque : ShaderGUI
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] properties)
     {
 
-        Texture2D shaderBanner = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/OutlierShades/Editor/ShaderBanner.png", typeof(Texture2D));
+        Texture2D shaderBanner = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/OutlierShades/Outlier-Shades/Editor/ShaderBanner.png", typeof(Texture2D));
 
         //base.OnGUI(materialEditor, properties);
         MaterialProperty _MaterialMode = ShaderGUI.FindProperty("_MaterialMode", properties);
