@@ -23,6 +23,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _AlbedoX:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlbedoY:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlbedoZ:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Alpha:
         m_Texture: {fileID: 2800000, guid: 8fa18d5b912bfc5409acf785fe00a091, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -120,6 +132,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalX:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalY:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalZ:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -239,6 +263,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _TriplanarBlend: 1
     - _UseAlpha: 0
     - _UseEmission: 0
     - _UseRimLight: 1
@@ -246,6 +271,7 @@ Material:
     - _UseSpecularRamp: 0
     - _UseToonRamp: 0
     - _UseTopCoverage: 0
+    - _UseTriplanarProjection: 0
     - _UseVertexColours: 0
     - _UseWorldGradient: 1
     - _WorkflowMode: 1
@@ -256,11 +282,16 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GradientTone: {r: 0.7924528, g: 0.7247272, b: 0.6234959, a: 0}
     - _GradientTone1: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseTint: {r: 1, g: 1, b: 1, a: 0}
     - _RimTint: {r: 0.754717, g: 0.44428623, b: 0.44428623, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularTint: {r: 1, g: 1, b: 1, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 0}
     - _TintRim: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    - _TriplanarDistanceBlend: {r: 1, g: 1, b: 1, a: 1}
+    - _TriplanarNoise: {r: 6, g: 10, b: 1, a: 1}
+    - _TriplanarNoiseOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _TriplanarNoiseTint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1755913539879515107
 MonoBehaviour:
