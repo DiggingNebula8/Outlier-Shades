@@ -7,7 +7,7 @@ Cel-Shaders developed for Outlier Games.
 
 ## Getting Started
 
-Coming soon. _Current version: v2.0.2_
+Coming soon. _Current version: v2.0.4_
 
 ### Prerequisites
 
